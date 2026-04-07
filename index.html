@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All in One Solution</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6fb;
+color:#333;
+}
+
+/* TOP BAR */
+
+.topbar{
+background:#0c1a33;
+color:#fff;
+display:flex;
+justify-content:space-between;
+padding:8px 40px;
+font-size:14px;
+}
+
+/* NAVBAR */
+
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:#fff;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+
+/* NEW LINES FOR STICKY NAVBAR */
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.nav-logo{
+width:55px;
+height:55px;
+border-radius:12px;
+}
+
+.brand{
+font-weight:700;
+font-size:20px;
+background:linear-gradient(90deg,#ff7a18,#ff4d8d,#8e2de2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+margin-left:auto;
+margin-right:20px;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#8e2de2;
+}
+
+.start-btn{
+background:linear-gradient(90deg,#ff7a18,#9b3cff);
+color:#fff;
+padding:10px 22px;
+border-radius:25px;
+text-decoration:none;
+font-weight:600;
+}
+/* HERO */
+
+.hero{
+padding:120px 20px;
+text-align:center;
+background:linear-gradient(180deg,#eef1f7,#f8f9fc);
+}
+
+.trusted{
+display:inline-block;
+background:#e9ddff;
+color:#6a3df0;
+padding:8px 20px;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:700;
+line-height:1.2;
+}
+
+.gradient{
+background:linear-gradient(90deg,#ff7a18,#ff4d8d,#8e2de2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:700px;
+margin:20px auto;
+font-size:18px;
+color:#666;
+}
+
+/* SERVICES */
+
+.services-section{
+padding:80px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.service-card{
+background:#fff;
+padding:25px;
+border-radius:18px;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+border-top:4px solid #ff7a18;
+cursor:pointer;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,0.18);
+}
+
+.service-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.badge{
+border:1px solid #ddd;
+padding:5px 10px;
+border-radius:8px;
+font-size:13px;
+}
+
+.price{
+color:#18a558;
+font-weight:600;
+}
+
+.service-card h3{
+margin:10px 0;
+}
+
+.docs{
+margin-top:15px;
+}
+
+.docs li{
+margin:6px 0;
+}
+
+.inquire{
+margin-top:20px;
+padding:12px;
+border-radius:10px;
+text-align:center;
+border:1px solid #ddd;
+cursor:pointer;
+transition:0.3s;
+}
+
+.inquire:hover{
+background:#fafafa;
+}
+
+/* CONTACT */
+
+.contact{
+padding:80px 20px;
+text-align:center;
+}
+
+form{
+max-width:500px;
+margin:auto;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:linear-gradient(90deg,#00cec9,#0984e3);
+color:#fff;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+/* PREMIUM POPUP */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(4px);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modal-content{
+background:#fff;
+padding:30px;
+border-radius:18px;
+width:90%;
+max-width:420px;
+text-align:left;
+animation:popupFade 0.4s ease;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+@keyframes popupFade{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.popup-btn{
+display:block;
+margin-top:14px;
+padding:14px;
+text-align:center;
+border-radius:12px;
+color:#fff;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.popup-btn:hover{
+transform:translateY(-3px);
+}
+
+.call{background:linear-gradient(90deg,#1e90ff,#0066ff);}
+.whatsapp{background:linear-gradient(90deg,#25D366,#00b14f);}
+.apply{background:linear-gradient(90deg,#ff512f,#ff0000);}
+
+.back-btn{
+margin-top:18px;
+display:inline-block;
+color:#666;
+font-size:14px;
+cursor:pointer;
+}
+
+/* LOCATION MAP */
+
+.map-section{
+background:#0c1a33;
+padding:80px 20px;
+text-align:center;
+color:#fff;
+}
+
+.map-section h2{
+margin-bottom:30px;
+font-size:32px;
+}
+
+.map-container{
+max-width:1100px;
+margin:auto;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.map-btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 25px;
+background:linear-gradient(90deg,#ff7a18,#9b3cff);
+color:#fff;
+border-radius:25px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+/* Top Bar */
+
+.topbar{
+flex-direction:column;
+text-align:center;
+gap:5px;
+padding:10px;
+font-size:12px;
+}
+
+/* Navbar */
+
+nav{
+flex-direction:column;
+gap:10px;
+padding:15px;
+}
+
+.nav-left{
+justify-content:center;
+}
+
+nav ul{
+flex-direction:column;
+gap:10px;
+margin:0;
+}
+
+.start-btn{
+margin-top:5px;
+}
+
+/* HERO SECTION */
+
+.hero{
+padding:80px 15px;
+}
+
+.hero h1{
+font-size:34px;
+line-height:1.3;
+}
+
+.hero p{
+font-size:15px;
+}
+
+/* SERVICES */
+
+.services-grid{
+grid-template-columns:1fr;
+}
+
+.service-card{
+padding:20px;
+}
+
+/* CONTACT */
+
+form{
+width:100%;
+}
+
+/* MAP */
+
+.map-container iframe{
+height:300px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div>📞 +91 98929 24642 | ✉️ allinonesolutions09226@gmail.com</div>
+<div>📍 Navi Mumbai, Maharashtra</div>
+</div>
+
+<nav>
+
+<div class="nav-left">
+<img src="logo.png" class="nav-logo">
+<div class="brand">ALL IN ONE SOLUTION</div>
+</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<a href="#contact" class="start-btn">Get Started</a>
+
+</nav>
+
+<section class="hero">
+
+<div class="trusted">Trusted by 5000+ Customers</div>
+
+<h1>
+One Stop Solution For<br>
+<span class="gradient">All Government Services</span>
+</h1>
+
+<p>
+We simplify documentation, applications and legal formalities.
+From Maha e-Seva to Insurance we handle everything.
+</p>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services" class="services-section">
+
+<div class="services-grid">
+
+<div class="service-card" onclick="showDetails('Udyam Registration ₹500',['Aadhaar Card','PAN Card','Business Address Proof'])">
+<div class="service-top">
+<span class="badge">Maha e-Seva Kendra</span>
+<span class="price">₹500</span>
+</div>
+<h3>Udyam Registration</h3>
+<p>Professional service handling for documentation.</p>
+<ul class="docs">
+<li>Aadhaar Card</li>
+<li>PAN Card</li>
+<li>Business Address Proof</li>
+</ul>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('PAN Card Service ₹300',['Aadhaar Card','3 Passport Size Photo'])">
+<div class="service-top">
+<span class="badge">Maha e-Seva Kendra</span>
+<span class="price">₹300</span>
+</div>
+<h3>PAN Card Services</h3>
+<p>New PAN application and corrections.</p>
+<ul class="docs">
+<li>Aadhaar Card</li>
+<li>3 Photo</li>
+</ul>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Income Certificate ₹500',['Aadhaar Card','Pan Card','16A Form','Light Bill/Room Agreement','Income Proof','Passport Size Photo'])">
+<div class="service-top">
+<span class="badge">Maha e-Seva Kendra</span>
+<span class="price">₹500</span>
+</div>
+<h3>Income Certificate</h3>
+<p>Government approved income verification.</p>
+<ul class="docs">
+<li>Aadhaar Card</li>
+<li>Pan Card</li>
+<li>16A Form</li>
+<li>Light Bill/Room Agreement</li>
+<li>Income Proof</li>
+<li>Passport Size Photo</li>
+</ul>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Gazette',['Aadhaar Card','Pan Card','Leaving Certificate','Passport Size photo'])">
+<span class="badge">Maha e-Seva Kendra</span>
+<h3>Gazette Certificate</h3>
+<p>It Is An Official Government Publication Serving As Legal Proof For A Name, Gender, or Date Of Birth Change In India.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Passport Assistance',['Aadhaar Card','Pan Card','Leaving Certificate','Highest Qualification Certificate','Light Bill or Rent Agreement'])">
+<h3>Passport Assistance</h3>
+<p>Passport application and documentation help.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Caste Certificate',['Aadhaar Card','School Leaving Certificate','Domicile Certificate','2 Passport Size photo'])">
+<h3>Caste Certificate</h3>
+<p>Government caste verification certificate.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('GST Registration',['Pan Card','Aadhaar Card','Business Proof','Bank Account Proof','Passport Size photo'])">
+<h3>GST Registration</h3>
+<p>Business GST registration service.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Voter ID',['Aadhaar Card','Passport Size Photo'])">
+<h3>Voter ID Card</h3>
+<p>New voter ID and corrections.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Room Agreement',['Pan Card','Aadhaar Card','3 Passport Size Photo'])">
+<h3>Room Agreement</h3>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Shop Act License)',['Passport Size Photo','Mobile No','Email Id','Business Name','Business Address','Employee Count','Shop Front Side Photo','Business Starting Date','Sign'])">
+<h3>Shop Act License</h3>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Domicile Certificate',['Aadhaar Card','Pan Card','Light Bill/Ration Card','Leaving Certificate/Birth Certificate'])">
+<h3>Domicile Certificate</h3>
+<p>Domicile Refers TO Someone's True, Principal, And Permanent Home.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Mhada Lottery Form',['Aadhaar Card','Pan Card','Domicile Certificate','Income Certificate'])">
+<h3>Mhada Lottery Form</h3>
+<p>A Home Is Not A Place, It's A Feeling. Apply For Your Own With Mhada.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Life Insurance Corporation of India (LIC)',['Aadhaar Card','Light Bill/Room Agreement','Income Proof'])">
+<h3>Life Insurance Corporation of India (LIC)</h3>
+<p>Your Welfare Is Our Responsibility.</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Care Health Insurance',['To know about Documents call us.'])">
+<h3>Care Health Insurance</h3>
+<p>Mediclaim Policy</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+<div class="service-card" onclick="showDetails('Magma General Insurance',['To know about Documents call us.'])">
+<h3>Magma General Insurance</h3>
+<p>vehicle Insurance</p>
+<div class="inquire">Inquire Now →</div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact Us</h2>
+
+<form id="contactForm">
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="text" id="phone" placeholder="Phone Number" required>
+<textarea id="message" placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+<!-- POPUP -->
+
+<div id="popup" class="modal">
+
+<div class="modal-content">
+
+<h3 id="title"></h3>
+<div id="details"></div>
+
+<a href="tel:9892924642" class="popup-btn call">📞 Call Now</a>
+<a id="waLink" class="popup-btn whatsapp" target="_blank">💬 WhatsApp</a>
+<a id="applyLink" class="popup-btn apply" target="_blank">📝 Apply Now</a>
+
+<div class="back-btn" onclick="closePopup()">← Back to Services</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showDetails(title,docs){
+
+document.getElementById("title").innerText=title;
+
+let list="<b>Required Documents:</b><ul>";
+
+docs.forEach(d=> list+=`<li>${d}</li>`);
+
+list+="</ul>";
+
+document.getElementById("details").innerHTML=list;
+
+let msg=`Hello I want to apply for ${title}`;
+
+let url=`https://wa.me/919892924642?text=${encodeURIComponent(msg)}`;
+
+document.getElementById("waLink").href=url;
+document.getElementById("applyLink").href=url;
+
+document.getElementById("popup").style.display="flex";
+
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+window.onclick=function(event){
+let modal=document.getElementById("popup");
+if(event.target==modal){
+modal.style.display="none";
+}
+}
+
+/* CONTACT → WHATSAPP */
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let message=document.getElementById("message").value;
+
+let text=`Name: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
+
+window.open(`https://wa.me/919892924642?text=${text}`,'_blank');
+
+});
+
+</script>
+
+<!-- LOCATION MAP -->
+
+<section class="map-section">
+
+<h2>Find Our Shop Location</h2>
+
+<div class="map-container">
+
+<iframe 
+src="https://www.google.com/maps?q=City+Light+Building,+Sector+1,+Kopar+Khairane,+Navi+Mumbai,+Maharashtra+400709&output=embed"
+width="100%" 
+height="400"
+style="border:0;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+<a href="https://www.google.com/maps?q=City+Light+Building,+Sector+1,+Kopar+Khairane,+Navi+Mumbai,+Maharashtra+400709" 
+target="_blank"
+class="map-btn">
+📍 Get Directions
+</a>
+
+</div>
+
+</section>
+
+</body>
+</html>
