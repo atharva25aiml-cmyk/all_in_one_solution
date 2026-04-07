@@ -37,18 +37,50 @@ font-size:14px;
 /* NAVBAR */
 
 
-nav{
+/* NAVBAR 1 (LOGO + TITLE) */
+
+.nav-top{
 display:flex;
-justify-content:space-between;
 align-items:center;
 padding:18px 40px;
 background:#fff;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
 
-/* NEW LINES FOR STICKY NAVBAR */
 position:sticky;
 top:0;
 z-index:1000;
+}
+
+/* NAVBAR 2 (MENU) */
+
+.nav-menu{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#ffffff;
+box-shadow:0 5px 10px rgba(0,0,0,0.05);
+}
+
+/* NAV MENU ITEMS */
+
+.nav-menu ul{
+display:flex;
+list-style:none;
+gap:30px;
+margin-left:auto;
+margin-right:20px;
+}
+
+.nav-menu a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-menu a:hover{
+color:#8e2de2;
 }
 
 .nav-left{
@@ -419,14 +451,23 @@ height:300px;
 <div>📍 Navi Mumbai, Maharashtra</div>
 </div>
 
-<nav>
+<!-- NAVBAR 1 (LOGO + TITLE) -->
+
+<nav class="nav-top">
 
 <div class="nav-left">
 <img src="logo.png" class="nav-logo">
 <div class="brand">ALL IN ONE SOLUTION</div>
 </div>
 
-<ul>
+</nav>
+
+
+<!-- NAVBAR 2 (MENU) -->
+
+<nav class="nav-menu">
+
+<ul id="navLinks">
 <li><a href="#">Home</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#contact">Contact</a></li>
